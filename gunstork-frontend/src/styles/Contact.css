@@ -1,0 +1,20 @@
+.contact-container{
+    display: flex;
+    gap:10px;
+    font-family: 'Garet-Book';
+}
+.contact-container .contact-item{
+    width: 50%;
+}
+.contact-item .information{
+    display: flex;
+}
+.information-item{
+    width: 50%;
+}
+.contact-container p{
+    font-size: 15px;
+}
+.info-text{
+    font-weight: bold;
+}

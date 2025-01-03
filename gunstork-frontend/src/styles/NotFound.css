@@ -1,0 +1,9 @@
+.notfound-container{
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+}
+.notfound-container img{
+    object-fit: cover;
+}
+

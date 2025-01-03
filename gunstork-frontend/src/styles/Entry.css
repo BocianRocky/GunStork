@@ -1,0 +1,15 @@
+.main-container{
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.main-container .introduction{
+    text-align: center;
+    font-size: 22px;
+    font-family: 'monofonto'
+}
+.main-container .description{
+    text-align: justify;
+    font-size: 20px;
+}
+
+

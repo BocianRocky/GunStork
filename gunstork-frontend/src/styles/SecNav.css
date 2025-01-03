@@ -1,0 +1,109 @@
+.nav_second {
+    font-weight: bold;
+    background-color: #0a0909;
+    /*background: linear-gradient(#121111, #292726);*/
+}
+
+.nav_second nav ul {
+    justify-content: center; 
+    list-style: none; 
+    display: flex; 
+    margin: 0;
+    padding: 0;
+}
+
+.nav_second nav ul li {
+    padding: 0;
+    border: 1px solid #2a2828;
+    position: relative;
+}
+
+.nav_second nav ul li a {
+    display: block;
+    padding: 20px 40px;
+    position: relative;
+    white-space: nowrap;
+    color: white;
+    text-decoration: none; 
+    font-size: 16px;
+}
+
+.nav_second nav ul li a:hover,
+.nav_second nav ul li:hover > a {
+    background-color: #292726;
+    color: rgb(174, 170, 177);
+}
+
+.nav_second ul .sub-menu {
+    display: none;
+    position: absolute;
+    background-color: #333;
+    padding: 0;
+    top: 100%;
+    left: 0;
+    z-index: 10;
+}
+
+.nav_second ul .sub-menu a {
+    font-weight: normal;
+    font-size: 1rem;
+    padding: 10px 20px;
+}
+
+.nav_second li:hover .sub-menu {
+    display: block;
+}
+.nav_second {
+    font-weight: bold;
+    background-color: #0a0909;
+    /*background: linear-gradient(#121111, #292726);*/
+}
+
+.nav_second nav ul {
+    justify-content: center; 
+    list-style: none; 
+    display: flex; 
+    margin: 0;
+    padding: 0;
+}
+
+.nav_second nav ul li {
+    padding: 0;
+    border: 1px solid #2a2828;
+    position: relative;
+}
+
+.nav_second nav ul li a {
+    display: block;
+    padding: 20px 40px;
+    position: relative;
+    white-space: nowrap;
+    color: white;
+    text-decoration: none; 
+    font-size: 16px;
+}
+
+.nav_second nav ul li a:hover,
+.nav_second nav ul li:hover > a {
+    background-color: #292726;
+    color: rgb(174, 170, 177);
+}
+
+.nav_second ul .sub-menu {
+    display: none;
+    position: absolute;
+    background-color: #333;
+    padding: 0;
+    top: 100%;
+    left: 0;
+}
+
+.nav_second ul .sub-menu a {
+    font-weight: normal;
+    font-size: 1rem;
+    padding: 10px 20px;
+}
+
+.nav_second li:hover .sub-menu {
+    display: block;
+}

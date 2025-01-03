@@ -1,0 +1,29 @@
+body{
+    /*background: linear-gradient(135deg, rgb(128, 128, 128) 60%, rgb(8, 106, 163));*/
+    font-family: 'Garet-Book';
+    color: white;
+    background: #000 url(../assets/images/moro.png);
+    margin: 0px;
+    height: 100%;
+    
+
+}
+@font-face {
+    font-family: 'monofonto';
+    src: url('../assets/fonts/monofonto rg.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Garet-Book';
+    src: url('../assets/fonts/Garet-Book.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+.page-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    font-size: 22px;
+    font-family: 'monofonto'
+}

@@ -1,0 +1,116 @@
+.main-products-container{
+    margin:20px 0;
+    display: flex;
+    gap:20px;
+    font-family: 'Garet-Book';
+    font-size:13px;
+    align-items: flex-start;
+    
+}
+.sort-container{
+    width: 20%;
+    background-color: black;
+    border: 1px solid #ddd;
+    padding: 10px;
+}
+.sort-container h3{
+    font-size: 20px;
+}
+.sort-container .link-container{
+    display: block;
+}
+.sort-container .link{
+    display: inline-block;
+    color: #f0f0f0;
+    text-decoration: none;
+    padding: 5px;
+    transition: color 0.3s ease;
+}
+.sort-container .link:hover{
+    color: #474242;
+}
+
+.products-container{
+    width: 80%;
+    background-color: black;
+    border: 1px solid #ddd;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+.product-item{
+    margin: 10px;
+    text-align: center;
+
+}
+.product-item .image-item{
+    position: relative;
+}
+.product-item .image-item .sale{
+    position: absolute;
+    top: 5px;
+    left: 4px;
+    padding: 2px 5px 2px 5px;
+    background-color: rgba(255, 0, 0, 0.7);
+    z-index: 2;
+}
+.product-item .image-item .out-of-stock{
+    position: absolute;
+    top: 5px;
+    left: 4px;
+    padding: 2px 5px 2px 5px;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 2;
+}
+
+.product-item img{
+    height: 212px;
+    width: 212px;
+    
+}
+.product-item .old-price{
+    text-decoration: line-through;
+    color:darkgrey;
+}
+
+.product-item .product-name{
+    min-height: 50px;
+    transition: color 0.3s ease;
+}
+.product-item .product-name:hover{
+    color:darkgrey;
+}
+
+.product-item a{
+    text-decoration: none;
+    color: #f0f0f0;
+}
+
+.product-item .new-price, .product-item .producer-info2{
+    font-weight: bold;
+}
+.product-item .producer-info{
+    color: darkgrey;
+}
+
+
+.product-item button{
+    cursor: pointer;
+    outline: 0;
+    color: #fff;
+    background-color: #2c2e30;
+    border-color: #2c2e30;
+    display: inline-block;
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: center;
+    border: 1px solid transparent;
+    padding: 6px 30px;
+    font-size: 16px;
+    border-radius: .45rem;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+.product-item button:hover{
+    color: #fff;
+    background-color: #6c6c6c;
+    border-color: #6c6c6c;
+}
