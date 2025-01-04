@@ -10,6 +10,7 @@ import Contact from './Contact'
 import Products from './Products';
 import Item from './Item';
 import Cart from './Cart';
+import Statute from './Statute'
 
 
 function App() {
@@ -29,13 +30,25 @@ function App() {
       
     });
   };
-  const removeProductFromCart=(productId)=>{
-    setCart((lastCart)=>lastCart.filter((product)=>product.id!==productId))
-  }
+  const handleRemoveProductFromCart=(productId)=>{
+    const updateCart=cart.filter((product)=>product.ProductId!==productId);
+    setCart(updateCart);
+};
 
   const getCartCountProducts=()=>{
     return cart.reduce((sum,item)=>sum+item.Quantity,0); //drugi argument to iteracja po obiektach
   };
+  const handleQuantityProduct =(e,productId)=>{
+    const updateProducts=cart.map((product)=>{
+        if(product.ProductId===productId){
+            return{...product,Quantity: parseInt(e.target.value,10)}
+        }else{
+            return product;
+        }
+    });
+    setCart(updateProducts);
+    
+};
 
   return (
     <Router>
@@ -47,7 +60,8 @@ function App() {
         <Route path="/products/:productId" element={<div className='page-container'><Item addProductToCart={addProductToCart}/></div>}/>
         <Route path="*" element={<NotFound/>}/>
         <Route path='/kontakt' element={<div className='page-container'><Contact/></div>}/>
-        <Route path='/koszyk' element={<div className='page-container'><Cart cart={cart}/></div>}/>
+        <Route path='/koszyk' element={<div className='page-container'><Cart cart={cart} handleRemoveProductFromCart={handleRemoveProductFromCart} handleQuantityProduct={handleQuantityProduct}/></div>}/>
+        <Route path='/regulamin' element={<div className='page-container'><Statute></Statute></div>}/>
       </Routes>
       <Footer></Footer>
     </Router>
