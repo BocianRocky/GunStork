@@ -1,0 +1,18 @@
+.statute-container{
+    margin-top: 56px;
+    background-color: black;
+    border: 1px solid #ddd;
+    font-family: 'Garet-Book';
+}
+
+.statute-container .statute-settings{
+    padding: 10px 27px;
+}
+.statute-settings .statute-intro{
+    display: flex;
+}
+
+.statute-container .statute-settings .statute-intro h2{
+    border-top: 2px solid rgb(48, 45, 45);
+    border-bottom: 2px solid rgb(48, 45, 45);
+}
