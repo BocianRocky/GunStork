@@ -59,16 +59,20 @@ function Products({addProductToCart}){
             addProductToCart(addProduct);
         }
     }
+    const filterCaliber=categories.filter((category)=>category.Type==='Caliber');
 
     return(
         <div className='main-products-container'>
             <div className='sort-container'>
-                <h3>Kaliber</h3>
                 {
-                        categories.filter((category)=>category.Type==='Caliber').map((category,index)=>(
+                    filterCaliber.length>0 ?
+                    <h3>Kaliber</h3> : null
+                }
+                {
+                        filterCaliber.map((category,index)=>(
                         <div className='link-container'><Link key={index} to={`/products?type=${catName}&caliber=${encodeURIComponent(category.ProdCal)}` }className='link'>{category.ProdCal}</Link></div>
                 ))}
-                <h3>Producent</h3>
+                <h3>Producent</h3>                
                 {   
                         categories.filter((category)=>category.Type==='Producer').map((category,index)=>(
                         <div className='link-container'><Link key={index} to={`/products?type=${catName}&producer=${encodeURIComponent(category.ProdCal)}`}className='link'>{category.ProdCal}</Link></div>
