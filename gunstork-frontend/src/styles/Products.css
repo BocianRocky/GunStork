@@ -114,3 +114,7 @@
     background-color: #6c6c6c;
     border-color: #6c6c6c;
 }
+.product-item button.disabled-button{
+    background-color: #1c1c1d;
+    cursor: not-allowed;
+}
