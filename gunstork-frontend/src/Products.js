@@ -54,11 +54,16 @@ function Products({addProductToCart}){
                 ProductName:product.ProductName,
                 Image:product.image,
                 Price:product.Price,
+                DiscountPrice:product.DiscountPrice,
                 Quantity:1
             };
             addProductToCart(addProduct);
         }
     }
+    const isAvailable =(quantity)=>{
+        return quantity>0;
+    };
+
     const filterCaliber=categories.filter((category)=>category.Type==='Caliber');
 
     return(
@@ -85,7 +90,7 @@ function Products({addProductToCart}){
                         <div className='product-item'>
                             <div key={product.ProductId}>     
                                 <div className='image-item'>
-                                    {product.Quantity<=0 ?
+                                    {!isAvailable(product.Quantity) ?
                                         (<span className='out-of-stock'><b>OUT OF STOCK</b></span>) 
                                         : product.DiscountPrice>0 ? (<span className='sale'><b>PROMOCJA -{product.DiscountPrice}%</b></span>)
                                         : null
@@ -100,7 +105,11 @@ function Products({addProductToCart}){
                                 <p><span className='producer-info'>Producent: </span><span className='producer-info2'>{product.Producer}</span></p>
                                 <p>{product.DiscountPrice===0 ? (<span>{product.Price} zł</span>) : (<><span className='old-price'>{product.Price} zł</span>{" "}<span className='new-price'>{(product.Price-product.Price*(product.DiscountPrice/100)).toFixed(2)} zł</span></>)
                                 }</p>
-                                <button onClick={()=>handleAddProductToCart(product)}>Do koszyka</button>
+                                {
+                                isAvailable(product.Quantity) ?
+                                <button onClick={()=>handleAddProductToCart(product)}>Do koszyka</button> :
+                                <button disabled className='disabled-button'>Niedostępny</button>
+                                }
                             </div>
                         </div>    
                     ))

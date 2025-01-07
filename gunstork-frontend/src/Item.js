@@ -31,11 +31,15 @@ function Item({addProductToCart}){
                 ProductName:product.ProductName,
                 Image:product.image,
                 Price:product.Price,
+                DiscountPrice:product.DiscountPrice,
                 Quantity:quantity
             };
             addProductToCart(addProduct);
         }
     }
+    const isAvailable =(quantity)=>{
+        return quantity>0;
+    };
 
     if(!product){
         return <div>Wait</div>;
@@ -54,7 +58,13 @@ function Item({addProductToCart}){
                         <h3>{product.ProductName}</h3>
                     </div>
                     <div className='description'>
-                        <p><span>Cena: </span> <span className='item-price'>{product.Price} zł</span></p>
+                        { !isAvailable(product.DiscountPrice) ?
+                            <p><span>Cena: </span> <span className='item-price'>{product.Price} zł</span></p> :
+                            <>
+                                <p><span className='prev'>Cena poprzednia: </span> <span className='prev-item-price'>{product.Price} zł</span></p>
+                                <p><span>Cena: </span> <span className='item-price'>{product.Price-(product.Price*product.DiscountPrice/100)} zł</span></p>
+                            </>
+                        }
                         <div className='spec-desc'>
                             <p>Dane techniczne</p>
                             <p><span className='desc-text'>Kaliber</span> <span className='desc-second-text'>{product.Caliber}</span></p>
@@ -64,7 +74,10 @@ function Item({addProductToCart}){
                                 <span className='desc-text'>Ilość</span>
                                 <input type='number' min='1' value={quantity} onChange={handleQuantityChange}/>
                                 <span className='desc-text'>szt.</span>
-                                <button onClick={handleAddProductToCart}>DODAJ DO KOSZYKA</button>
+                                { isAvailable(product.Quantity) ?
+                                <button onClick={handleAddProductToCart}>DODAJ DO KOSZYKA</button> :
+                                <button disabled className='disabled-button'>Niedostępny</button>
+                                }                               
                             </p>
                             <p><span className='desc-text'>{product.Description}</span></p>
                         </div>

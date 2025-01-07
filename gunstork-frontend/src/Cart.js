@@ -4,8 +4,14 @@ import remove from './assets/images/remove.png';
 function Cart({cart, handleRemoveProductFromCart,handleQuantityProduct}){
     
     const totalPrice=()=>{
-        return cart.reduce((sum,product)=>sum+(product.Quantity*product.Price),0).toFixed(2);
+        return cart.reduce((sum,product)=>sum+(product.Quantity*getPriceWithDiscount(product.Price,product.DiscountPrice)),0).toFixed(2);
     }
+    const getPriceWithDiscount =(price,discountPrice)=>{
+        if(discountPrice>0){
+            return price-(price*discountPrice/100);
+        }
+        return price;
+    };
 
     return(
         <div className='cart-container'>
@@ -32,13 +38,14 @@ function Cart({cart, handleRemoveProductFromCart,handleQuantityProduct}){
                                 <tbody>
                                     {
                                         cart.map((product)=>(
+                                            
                                             <tr key={product.ProductId}>
                                                 <td className='photo-settings'><img src={require(`./assets/images/${product.Image}`)} alt={product.ProductName}/></td>
                                                 <td class='table-name-product'>{product.ProductName}</td>
                                                 <td className='center'><button onClick={()=>handleRemoveProductFromCart(product.ProductId)} className='button-remove'><img src={remove} alt='Usuń'/></button></td>
-                                                <td className='center'>{product.Price} zł</td>
+                                                <td className='center'>{getPriceWithDiscount(product.Price,product.DiscountPrice)} zł</td>
                                                 <td><input type='number' min='1' value={product.Quantity} onChange={(e)=>handleQuantityProduct(e,product.ProductId)}/></td>
-                                                <td className='center'>{(product.Price*product.Quantity).toFixed(2)} zł</td>
+                                                <td className='center'>{(getPriceWithDiscount(product.Price,product.DiscountPrice)*product.Quantity).toFixed(2)} zł</td>
                                             </tr>
                                         ))
                                     }
