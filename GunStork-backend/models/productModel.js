@@ -45,12 +45,13 @@ exports.getProductsByCategory=async (categoryName,caliber,producer,limit, offset
     try{
         const [products]= await db.execute(
             `SELECT p.ProductId,p.ProductName,p.Producer,p.image,p.Quantity, p.Description,p.Caliber, p.Price,COALESCE(s.PercentDiscount,0) AS DiscountPrice
-            FROM Product p
-            LEFT JOIN Sale s ON p.ProductId=s.ProductId
-            JOIN Category c ON p.CategoryId=c.CategoryId
-            WHERE c.CategoryName= ? AND ((? IS NULL or p.Caliber=?) AND (? IS NULL or p.Producer=?))
-            AND ((CURRENT_DATE BETWEEN s.DateStart AND s.DateEnd) OR s.SaleId IS NULL)
-            LIMIT ? OFFSET ?;`,
+FROM Product p
+LEFT JOIN Sale s ON p.ProductId=s.ProductId
+JOIN Category c ON p.CategoryId=c.CategoryId
+JOIN Category secc ON secc.CategoryId=c.CategoryParentId
+WHERE (c.CategoryName= ? AND ((? IS NULL or p.Caliber=?) AND (? IS NULL or p.Producer=?)) OR secc.CategoryName=?)
+AND ((CURRENT_DATE BETWEEN s.DateStart AND s.DateEnd) OR s.SaleId IS NULL)
+LIMIT ? OFFSET ?;`,
             [categoryName,caliber,caliber, producer,producer,limit,offset]
         );
         return products;
