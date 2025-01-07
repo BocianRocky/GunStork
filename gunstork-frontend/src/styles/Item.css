@@ -38,6 +38,14 @@
     font-family: 'monofonto';
     font-size: 27px;
 }
+.item-container .item-description .description .prev, .item-container .item-description .description .prev-item-price{
+    font-size: 17px;
+    color:gray;
+}
+.item-container .item-description .description .prev-item-price{
+    text-decoration: line-through;
+}
+
 .item-container .item-description .description .spec-desc{
     margin-top: 60px;
     
@@ -87,4 +95,9 @@ input[type="number"]:focus {
     color: #fff;
     background-color: #6c6c6c;
     border-color: #6c6c6c;
+}
+
+.item-description .description button.disabled-button{
+    background-color: #1c1c1d;
+    cursor: not-allowed;
 }
