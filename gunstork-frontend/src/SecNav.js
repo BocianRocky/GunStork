@@ -8,7 +8,7 @@ function SecNav(){
       <nav>
         <ul>
           <li>
-            <Link to="/main">BROŃ</Link>
+            <Link to="/products?type=broń">BROŃ</Link>
             <ul className="sub-menu">
               <li><Link to="/products?type=broń-krótka-bocznego-zapłonu">Broń krótka bocznego zapłonu</Link></li>
               <li><Link to="/products?type=broń-długa-bocznego-zapłonu">Broń długa bocznego zapłonu</Link></li>
