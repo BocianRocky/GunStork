@@ -4,12 +4,14 @@ GET http://localhost:3000/products/sale
 ###
 GET http://localhost:3000/products/newest
 ###
-GET http://localhost:3000/products?categoryName=broń-krótka-centralnego-zapłonu&limit=30&offset=0
+GET http://localhost:3000/products?categoryName=broń-krótka-centralnego-zapłonu&limit=5&offset=0
 ###
 GET http://localhost:3000/products/categories?categoryName=broń-krótka-centralnego-zapłonu
 ###
 GET http://localhost:3000/products?categoryName=broń-długa-centralnego-zapłonu&caliber=.223REM
 ###
 GET http://localhost:3000/products/5
+###
+GET http://localhost:3000/products?categoryName=broń
 ###
 GET http://localhost:3000/products?categoryName=broń
