@@ -34,6 +34,9 @@
     width: 80%;
     background-color: black;
     border: 1px solid #ddd;
+    
+}
+.products-container .products-grid{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
 }
@@ -117,4 +120,41 @@
 .product-item button.disabled-button{
     background-color: #1c1c1d;
     cursor: not-allowed;
+}
+
+.pagination-container{
+    margin:30px;
+    display: flex;
+    justify-content: flex-end;
+}
+.pagination-container .buttons-space{
+    display: flex;
+    gap:20px;
+    padding: 20px;
+}
+.pagination-container .buttons-space button{
+    cursor: pointer;
+    outline: 0;
+    color: #fff;
+    background-color: #1a1b1c;
+    border-color: #2c2e30;
+    display: inline-block;
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: center;
+    border: 1px solid transparent;
+    padding: 8px 12px;
+    font-size: 16px;
+    border-radius: .45rem;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+.pagination-container .buttons-space button.active{
+    color: #b4adad;
+    background-color: #211f1f;
+    border-color: #6c6c6c;
+}
+.pagination-container .buttons-space button:hover{
+    color: #b4adad;
+    background-color: #211f1f;
+    border-color: #6c6c6c;
 }
