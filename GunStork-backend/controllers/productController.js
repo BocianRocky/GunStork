@@ -27,14 +27,17 @@ exports.getOnlyTwoNewProducts=async(req,res)=>{
     }
 }
 
-exports.getProductsByCategory=async(req,res)=>{
+exports.getProductsByCategoryAndCount=async(req,res)=>{
     try{
-        const {categoryName,caliber=null,producer=null, limit='20', offset='0'} =req.query;
+        const {categoryName,caliber=null,producer=null, limit='12', offset='0'} =req.query;
+        
         const products=await productModel.getProductsByCategory(categoryName,caliber,producer,limit,offset);
-        res.status(200).json(products);
+        const total=await productModel.getCountProductsByCategories(categoryName,caliber,producer);
+        res.status(200).json({products,total});
 
     }catch(err){
-        res.status(500).json('blad pobrania danych z serwera');
+        console.log(err);
+        res.status(500).json('bladwwww pobrania danych z serwera');
     }
 };
 
