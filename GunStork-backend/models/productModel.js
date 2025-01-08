@@ -44,17 +44,31 @@ exports.getOnlyTwoNewProducts=async ()=>{
 exports.getProductsByCategory=async (categoryName,caliber,producer,limit, offset)=>{
     try{
         const [products]= await db.execute(
-            `SELECT p.ProductId,p.ProductName,p.Producer,p.image,p.Quantity, p.Description,p.Caliber, p.Price,COALESCE(s.PercentDiscount,0) AS DiscountPrice
-FROM Product p
-LEFT JOIN Sale s ON p.ProductId=s.ProductId
-JOIN Category c ON p.CategoryId=c.CategoryId
-JOIN Category secc ON secc.CategoryId=c.CategoryParentId
-WHERE (c.CategoryName= ? AND ((? IS NULL or p.Caliber=?) AND (? IS NULL or p.Producer=?)) OR secc.CategoryName=?)
-AND ((CURRENT_DATE BETWEEN s.DateStart AND s.DateEnd) OR s.SaleId IS NULL)
-LIMIT ? OFFSET ?;`,
+            `SELECT p.ProductId, p.ProductName, p.Producer, p.image, p.Quantity, p.Description, p.Caliber, p.Price, COALESCE(
+            CASE
+                WHEN CURRENT_DATE BETWEEN s.DateStart AND s.DateEnd THEN s.PercentDiscount
+                    ELSE 0
+                END, 0)
+                AS DiscountPrice
+            FROM Product p LEFT JOIN Sale s ON p.ProductId = s.ProductId JOIN Category c ON p.CategoryId = c.CategoryId
+            WHERE c.CategoryName= ? AND ((? IS NULL OR p.Caliber=?) AND (? IS NULL OR p.Producer=?))
+            LIMIT ? OFFSET ?;`,
             [categoryName,caliber,caliber, producer,producer,limit,offset]
         );
         return products;
+    }catch(err){
+        throw new Error('Blad pobierania danych z serwera');
+    }
+};
+
+exports.getCountProductsByCategories=async (categoryName,caliber,producer)=>{
+    try{
+        const [row]=await db.execute(
+            `SELECT COUNT(*) AS Total
+            FROM Product p LEFT JOIN Sale s ON p.ProductId = s.ProductId JOIN Category c ON p.CategoryId = c.CategoryId
+            WHERE c.CategoryName= ? AND ((? IS NULL OR p.Caliber=?) AND (? IS NULL OR p.Producer=?));`,[categoryName,caliber,caliber, producer,producer]);
+        const total=row[0].Total;
+        return total;
     }catch(err){
         throw new Error('Blad pobierania danych z serwera');
     }
