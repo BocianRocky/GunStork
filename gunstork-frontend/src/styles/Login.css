@@ -9,7 +9,7 @@
     padding: 50px 30px 30px 30px;
     width: 50%;
 }
-.login-container .login-area{
+.login-area{
     padding: 40px;
     border: 1px solid #ccc;
     border-radius: 16px;
@@ -60,7 +60,7 @@
 .login-form a:hover{
     color:#585958;
 }
-.login-form button, .register-area button{
+.login-form button, .register-area button, .register-form button{
     margin-top: 20px;
     padding: 9px 19px;
     border-radius: 5px;
@@ -72,7 +72,7 @@
     transition: background-color 0.3s ease, border-color 0.3s ease;
     width: 100%;
 }
-.login-form button:hover, .register-area button:hover{
+.login-form button:hover, .register-area button:hover,.register-form button:hover{
     color: #fff;
     background-color: #6c6c6c;
     border-color: #6c6c6c;
