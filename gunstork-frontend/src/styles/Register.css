@@ -1,0 +1,21 @@
+.log-reg-container{
+    display: flex;
+    justify-content: center;
+}
+.login-area{
+    min-width: 300px;
+}
+.register-form{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    flex-direction: column;
+    gap: 20px;
+}
+.register-form input{
+    width: 100%;
+    box-sizing: border-box;
+}
+.reg-area{
+    margin: 40px 0;
+}
