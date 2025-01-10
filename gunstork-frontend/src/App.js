@@ -10,8 +10,9 @@ import Contact from './Contact'
 import Products from './Products';
 import Item from './Item';
 import Cart from './Cart';
-import Statute from './Statute'
-
+import Statute from './Statute';
+import Login from "./Login";
+import Register from "./Register";
 
 function App() {
 
@@ -62,6 +63,8 @@ function App() {
         <Route path='/kontakt' element={<div className='page-container'><Contact/></div>}/>
         <Route path='/koszyk' element={<div className='page-container'><Cart cart={cart} handleRemoveProductFromCart={handleRemoveProductFromCart} handleQuantityProduct={handleQuantityProduct}/></div>}/>
         <Route path='/regulamin' element={<div className='page-container'><Statute></Statute></div>}/>
+        <Route path='/login' element={<div className='page-container'><Login></Login></div>}/>
+        <Route path='/rejestracja' element={<div className='page-container'><Register></Register></div>}/>
       </Routes>
       <Footer></Footer>
     </Router>
