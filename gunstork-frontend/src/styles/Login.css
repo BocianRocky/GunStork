@@ -1,0 +1,97 @@
+.log-reg-container{
+    margin: 20px;
+    background-color: black;
+    border: 1px solid #ddd;
+    display: flex; 
+
+}
+.login-container, .register-container{
+    padding: 50px 30px 30px 30px;
+    width: 50%;
+}
+.login-container .login-area{
+    padding: 40px;
+    border: 1px solid #ccc;
+    border-radius: 16px;
+    box-shadow: 4px 4px 10px rgba(149, 147, 147, 0.6);
+    
+}
+.log-reg-container h3{
+    margin-top: 0;
+    margin-bottom: 40px;
+
+}
+.login-form{
+    margin-top:30px;
+    font-family: 'Garet-Book';
+}
+.login-form .inputs{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.login-area input{
+    padding: 9px 19px;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: -0.07px;
+    text-decoration: none;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+}
+.login-area input:focus{
+    border-color: transparent;
+    box-shadow: none;
+}
+.login-area input:hover{
+    border-color: #585958;
+    background-color: #d6d3d8;
+}
+.login-form .forget{
+    display: block;
+}
+.login-form a{  
+    display: inline-block;
+    font-size: 10px;
+    color:#ccc; 
+}
+.login-form a:hover{
+    color:#585958;
+}
+.login-form button, .register-area button{
+    margin-top: 20px;
+    padding: 9px 19px;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #fff;
+    background-color: #2c2e30;
+    border-color: #2c2e30;
+    font-size: 16px;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    width: 100%;
+}
+.login-form button:hover, .register-area button:hover{
+    color: #fff;
+    background-color: #6c6c6c;
+    border-color: #6c6c6c;
+}
+
+.register-area{
+    padding: 40px;
+}
+.register-info{
+    font-family: 'Garet-Book';
+}
+.benefits-list{
+    margin-top: 60px;
+    font-size: 16px;
+    list-style: none;
+}
+.register-area ul{
+    padding-left: 0;
+}
+.benefits-list li{
+    margin-bottom: 20px;
+}
