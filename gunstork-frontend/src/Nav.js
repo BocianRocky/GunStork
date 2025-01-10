@@ -22,9 +22,9 @@ function Nav({countItemCart}) {
             countItemCart>0 && <span className='cart-count'>{countItemCart}</span>
           }
         </Link>
-        <a href="login.html" aria-label="login">
+        <Link to='/login' aria-label="login">
           <img src={userIcon} alt="User" className="iconsvg" />
-        </a>
+        </Link>
       </div>
     </div>
   );
