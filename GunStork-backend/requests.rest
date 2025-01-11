@@ -15,3 +15,17 @@ GET http://localhost:3000/products/5
 GET http://localhost:3000/products?categoryName=broń
 ###
 GET http://localhost:3000/products?categoryName=broń
+###
+POST http://localhost:3000/auth/register
+Content-Type: application/json
+
+{
+  "Name": "Jan",
+  "LastName": "Kowalski",
+  "Login": "janek123",
+  "Email": "jan.kowalski@example.com",
+  "Password": "SuperHaslo123!",
+  "Date": "1995-01-15",
+  "Adress": "Warszawa, ul. Przykładowa 10",
+  "Licence": "AB1234567"
+}
