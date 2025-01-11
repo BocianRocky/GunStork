@@ -13,6 +13,7 @@ import Cart from './Cart';
 import Statute from './Statute';
 import Login from "./Login";
 import Register from "./Register";
+import SuccessReg from "./SuccessReg";
 
 function App() {
 
@@ -65,6 +66,8 @@ function App() {
         <Route path='/regulamin' element={<div className='page-container'><Statute></Statute></div>}/>
         <Route path='/login' element={<div className='page-container'><Login></Login></div>}/>
         <Route path='/rejestracja' element={<div className='page-container'><Register></Register></div>}/>
+        <Route path='/rejestracja/success' element={<div className='page-container'><SuccessReg></SuccessReg></div>}/>
+        
       </Routes>
       <Footer></Footer>
     </Router>
