@@ -37,3 +37,7 @@ Content-Type: application/json
   "loginOrEmail": "matixv2",
   "Password": "mati1234!"
 }
+###
+GET http://localhost:3000/account/profile
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJBY2NvdW50SWQiOjEsImxvZ2luT3JFbWFpbCI6Im1hdGl4djIiLCJpYXQiOjE3MzY3MjE3MjIsImV4cCI6MTczNjcyNTMyMn0.5AfIKfQ9Cai2wGJwCKpm_KzF5S5Galk473rvtL3U63o
+
