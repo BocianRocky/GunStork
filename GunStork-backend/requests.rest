@@ -29,3 +29,11 @@ Content-Type: application/json
   "Adress": "Warszawa, ul. Przykładowa 10",
   "Licence": "AB1234567"
 }
+###
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{
+  "loginOrEmail": "matixv2",
+  "Password": "mati1234!"
+}
