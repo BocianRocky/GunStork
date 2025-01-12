@@ -26,7 +26,7 @@ function Register(){
     const handleSubmit= async (e)=>{
         e.preventDefault();
         try{
-            const res= await axios.post('http://localhost:3000/auth/register',form);
+            const res= await axios.post('http://localhost:3000/account/register',form);
             console.log(res.data);
             setMessage(res.data.message);
             navigate('./success');
