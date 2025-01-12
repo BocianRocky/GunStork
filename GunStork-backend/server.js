@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const productRoutes = require('./routes/productRoutes');
 const accountRoutes = require('./routes/accountRoutes');
+const authRoutes = require('./routes/authRouter');
 const cors = require('cors');
 
 
@@ -11,7 +12,8 @@ app.use(express.json());
 app.use(cors());
 
 app.use('/products',productRoutes);
-app.use('/auth',accountRoutes);
+app.use('/account',accountRoutes);
+app.use('/auth',authRoutes);
 
 
 PORT=process.env.APP_PORT;
