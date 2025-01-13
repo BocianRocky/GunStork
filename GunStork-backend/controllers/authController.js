@@ -26,7 +26,7 @@ const login=async (req,res)=>{
 
         await Account.updateToken(acc.AccountId, accessToken, refreshToken, refreshTokenExp);
         
-        return res.status(200).json({message: 'zalogowano',accessToken});
+        return res.status(200).json({message: 'zalogowano',accessToken,refreshToken});
 
     }catch(err){
         return res.status(500).json({message: 'błąd podczas logowania'});
