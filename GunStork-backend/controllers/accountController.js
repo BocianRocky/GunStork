@@ -1,5 +1,5 @@
 const bcrypt =require('bcrypt');
-const Account =require('../models/accountModel');
+const Account =require('../repositories/accountRepository');
 
 const register=async (req,res)=>{
     const {Name,LastName,Login,Email,Password,Date,Adress,Licence}=req.body;

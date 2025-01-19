@@ -1,4 +1,4 @@
-const userModel =require('../models/userModel');
+const userModel =require('../repositories/userRepository');
 
 exports.getUserData=async (req,res)=>{
     const userId=req.user.AccountId;

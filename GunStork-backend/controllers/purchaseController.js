@@ -1,4 +1,4 @@
-const purchaseModel =require('../models/purchaseModel');
+const purchaseModel =require('../repositories/purchaseRepository');
 
 const handlePurchase=async (req,res)=>{
     try{

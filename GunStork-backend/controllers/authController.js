@@ -1,6 +1,6 @@
 const bcrypt=require('bcrypt');
 const jwt=require('jsonwebtoken');
-const Account=require('../models/accountModel');
+const Account=require('../repositories/accountRepository');
 const moment = require('moment');
 
 const login=async (req,res)=>{
