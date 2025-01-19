@@ -39,5 +39,28 @@ Content-Type: application/json
 }
 ###
 GET http://localhost:3000/account/profile
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJBY2NvdW50SWQiOjEsImxvZ2luT3JFbWFpbCI6Im1hdGl4djIiLCJpYXQiOjE3MzY3MjE3MjIsImV4cCI6MTczNjcyNTMyMn0.5AfIKfQ9Cai2wGJwCKpm_KzF5S5Galk473rvtL3U63o
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJBY2NvdW50SWQiOjEsImxvZ2luT3JFbWFpbCI6Im1hdGl4djIiLCJSb2xlIjoidXNlciIsImlhdCI6MTczNzI4MDA2NSwiZXhwIjoxNzM3MjgzNjY1fQ.E7-Q11orYndtTqITCVZS1qahq6PegTEp766pgs5qAyg
 
+###
+POST http://localhost:3000/products/purchase
+Content-Type: application/json
+
+{
+    "AccountId": 1,
+    "PaymentMethod": "Credit Card",
+    "TotalCost": 199.99,
+    "Products": [
+        {
+            "ProductId": 2,
+            "Quantity": 2
+        },
+        {
+            "ProductId": 3,
+            "Quantity": 1
+        }
+    ]
+}
+###
+GET http://localhost:3000/account/users
+###
+DELETE http://localhost:3000/account/user/6
