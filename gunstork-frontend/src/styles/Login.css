@@ -95,3 +95,7 @@
 .benefits-list li{
     margin-bottom: 20px;
 }
+.error{
+    font-size: 10px;
+    color: #d53917;
+}

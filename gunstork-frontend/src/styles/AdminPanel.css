@@ -1,0 +1,56 @@
+.admin-container{ 
+    margin: 20px;
+    background-color: black;
+    border: 1px solid #ddd;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.admin-second{
+    padding: 40px;
+}
+.user-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+.user-table tbody{
+    font-family: 'Garet-Book';
+}
+.user-table th, .user-table td{
+    border: 1px solid #ddd;
+    padding:6px 15px;
+    
+}
+.user-table .button-remove{
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+.user-table .button-remove img{
+    width: 20px;
+    height: 20px;
+}
+
+.admin-container .logout{
+    margin-top: 30px;
+    cursor: pointer;
+    outline: 0;
+    color: #fff;
+    background-color: #2c2e30;
+    border-color: #2c2e30;
+    display: inline-block;
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: center;
+    border: 1px solid transparent;
+    padding: 6px 50px;
+    font-size: 16px;
+    border-radius: .45rem;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+.admin-container .logout:hover{
+    color: #fff;
+    background-color: #6c6c6c;
+    border-color: #6c6c6c;
+}
