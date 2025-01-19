@@ -20,13 +20,13 @@ const login=async (req,res)=>{
         if(!checkPassword){
             return res.status(401).json({message:'niepoprawny login/email lub hasło'});
         }
-        const accessToken=jwt.sign({AccountId: acc.AccountId, loginOrEmail},process.env.JWT_SECRET,{expiresIn: '1h'});
-        const refreshToken=jwt.sign({AccountId: acc.AccountId, loginOrEmail},process.env.JWT_SECRET,{expiresIn: '7d'});
+        const accessToken=jwt.sign({AccountId: acc.AccountId, loginOrEmail, Role: acc.Role},process.env.JWT_SECRET,{expiresIn: '1h'});
+        const refreshToken=jwt.sign({AccountId: acc.AccountId, loginOrEmail, Role: acc.Role},process.env.JWT_SECRET,{expiresIn: '7d'});
         const refreshTokenExp=moment().add(7, 'days').format('YYYY-MM-DD HH:mm:ss');
 
         await Account.updateToken(acc.AccountId, accessToken, refreshToken, refreshTokenExp);
         
-        return res.status(200).json({message: 'zalogowano',accessToken,refreshToken});
+        return res.status(200).json({message: 'zalogowano',accessToken,refreshToken, role:acc.Role});
 
     }catch(err){
         return res.status(500).json({message: 'błąd podczas logowania'});
