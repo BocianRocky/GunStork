@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import React, { useState} from 'react';
+import React, { useState, useEffect } from "react";
 import './styles/App.css';
 import Nav from './Nav';
 import SecNav from './SecNav';
@@ -14,10 +14,18 @@ import Statute from './Statute';
 import Login from "./Login";
 import Register from "./Register";
 import SuccessReg from "./SuccessReg";
+import Profile from "./Profile";
+import AdminPanel from "./AdminPanel"
 
 function App() {
 
-  const [cart,setCart]=useState([]);
+  const [cart, setCart] = useState(() => {
+    const savedCart = localStorage.getItem("cart");
+    return savedCart ? JSON.parse(savedCart) : [];
+  });
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart]);
 
   const addProductToCart = (product) => {
     setCart((lastCart) => {
@@ -67,6 +75,8 @@ function App() {
         <Route path='/login' element={<div className='page-container'><Login></Login></div>}/>
         <Route path='/rejestracja' element={<div className='page-container'><Register></Register></div>}/>
         <Route path='/rejestracja/success' element={<div className='page-container'><SuccessReg></SuccessReg></div>}/>
+        <Route path='/profile' element={<div className='page-container'><Profile></Profile></div>}/>
+        <Route path='adminPanel' element={<div className='page-container'><AdminPanel></AdminPanel></div>}/>
         
       </Routes>
       <Footer></Footer>
