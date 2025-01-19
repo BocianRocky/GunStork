@@ -1,8 +1,43 @@
 import './styles/Cart.css';
 import remove from './assets/images/remove.png';
+import axios from 'axios';
+import React, { useState } from 'react';
 
 function Cart({cart, handleRemoveProductFromCart,handleQuantityProduct}){
-    
+    const [errorMessage, setErrorMessage] = useState('');
+
+    const handleCheckout=async ()=>{
+        try{
+            const token = localStorage.getItem('accessToken');
+            if (!token) throw new Error('Brak tokena dostępu! Użytkownik niezalogowany.');
+            const PaymentMethod='karta płatnicza';
+            const TotalCost=totalPrice();
+            const Products=cart.map((product)=>({
+                ProductId: product.ProductId,
+                Quantity: product.Quantity,
+                Price: getPriceWithDiscount(product.Price, product.DiscountPrice)
+            }));
+            const payload={PaymentMethod, TotalCost, Products};
+
+            const res=await axios.post('http://localhost:3000/products/purchase',payload,{
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            });
+            
+            if(res.status===201){
+                console.log(res.data.message);
+                alert('wszystko git')
+            }
+
+
+        }catch(err){
+            setErrorMessage('blad');
+            console.error(err);
+            
+        }
+    }
+
     const totalPrice=()=>{
         return cart.reduce((sum,product)=>sum+(product.Quantity*getPriceWithDiscount(product.Price,product.DiscountPrice)),0).toFixed(2);
     }
@@ -112,7 +147,8 @@ function Cart({cart, handleRemoveProductFromCart,handleQuantityProduct}){
                                                 <span className='all'>Razem:</span><span className='all'>{totalPrice()} zł</span>
                                             </div>
                                             <div className='button-all'>
-                                                <button>Do kasy</button>
+                                                <button onClick={handleCheckout}>Do kasy</button>
+                                                {errorMessage}
                                             </div>
                                         </div>
                                     </div>
