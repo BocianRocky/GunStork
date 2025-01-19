@@ -12,7 +12,7 @@ function Login(){
     useEffect(()=>{
         const token=localStorage.getItem('accessToken');
         if (token) {
-            navigate('/');
+            navigate('/profile');
         }
     },[navigate]);
 
@@ -27,7 +27,7 @@ function Login(){
                 navigate('/');
             }
         }catch(err){
-            setErrorMessage('błąd logowania');
+            setErrorMessage('błędny Email/Login lub hasło użytkownika');
         }
     };
 
@@ -43,6 +43,7 @@ function Login(){
                             <input type='password' placeholder='Hasło' value={password} onChange={(e) => setPassword(e.target.value)}></input>
                         </div>
                         <span className='forget'><Link to='/'>Zapomniałeś hasła?</Link></span>
+                        {errorMessage && <span className='error'>{errorMessage}</span>}
                         <button type="submit">Zaloguj się</button>
                     </form>
                 </div>
