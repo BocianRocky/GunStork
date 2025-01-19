@@ -6,5 +6,7 @@ const router = express.Router();
 
 router.post('/register', register);
 router.get('/profile',authenticateToken,userController.getUserData);
+router.get('/users',userController.getAllUserWithTotalCostPurchase);
+router.delete('/user/:id',userController.deleteUser)
 
 module.exports=router;
