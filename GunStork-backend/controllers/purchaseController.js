@@ -1,11 +1,11 @@
-const purchaseModel =require('../repositories/purchaseRepository');
+const purchaseRepository =require('../repositories/purchaseRepository');
 
 const handlePurchase=async (req,res)=>{
     try{
         const {PaymentMethod, TotalCost, Products}=req.body;
         const AccountId=req.user.AccountId;
         console.log(AccountId, PaymentMethod, TotalCost, Products);
-        const purchaseId=await purchaseModel.createPurchase(AccountId, PaymentMethod, TotalCost, Products);
+        const purchaseId=await purchaseRepository.createPurchase(AccountId, PaymentMethod, TotalCost, Products);
         console.log('koszyk: ',purchaseId);
         res.status(201).json({message:'zamówienie zostalo złożone'});
 
