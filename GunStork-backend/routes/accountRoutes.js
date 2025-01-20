@@ -8,5 +8,6 @@ router.post('/register', register);
 router.get('/profile',authenticateToken,userController.getUserData);
 router.get('/users',userController.getAllUserWithTotalCostPurchase);
 router.delete('/user/:id',userController.deleteUser)
+router.get('/user',authenticateToken,userController.getPurchasesUser);
 
 module.exports=router;
