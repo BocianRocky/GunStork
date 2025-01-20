@@ -32,6 +32,13 @@
     width: 75%;
     border-left: 1px solid #ddd;
 }
+.info-details{
+    font-family: 'Garet-Book';
+    padding-left: 20px;
+}
+.info-details .color-font{
+    color: #969494;
+}
 
 .profile-container button{
     cursor: pointer;
@@ -54,3 +61,30 @@
     background-color: #6c6c6c;
     border-color: #6c6c6c;
 }
+
+.profile-container .order{
+    font-family: 'Garet-Book';
+    font-size: 15px;
+    display: flex;
+    border: 1px solid #ddd;
+    border-radius: 16px;
+    box-shadow: 4px 4px 10px rgba(149, 147, 147, 0.6);
+    margin-bottom: 40px;
+    overflow: hidden;
+}
+.profile-container .order .order-details{
+    padding: 10px;
+    min-width: 100px;
+    background-color:#202223;
+}
+.profile-container .order .order-images{
+    padding: 10px;
+    display: flex;
+    align-items: center;
+}
+.profile-container .order .order-images img{
+    width: 80px;
+    height: 80px;
+}
+
+
