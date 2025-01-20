@@ -8,6 +8,7 @@ function Profile() {
     const [error,setError]=useState(null);
     const [profileData, setProfileData]=useState(null);
     const [role,setRole]=useState(null);
+    const [orders,setOrders]=useState([]);
     const token=localStorage.getItem('accessToken');
     const navigate=useNavigate();  
 
@@ -35,15 +36,35 @@ function Profile() {
         }
     },[token]);
 
+    const fetchOrders=useCallback(async ()=>{
+        if(!token){
+            setError('Brak tokenu. Zaloguj się ponownie.');
+            return;
+        }
+        try{
+            const res=await axios.get('http://localhost:3000/account/user',{
+                headers:{
+                    Authorization: `Bearer ${token}`,
+                },
+            });
+            console.log(res.data);
+            setOrders(res.data);
+        }catch(err){
+            setError('Bląd podczas pobierania zamówień');
+        }
+    }, [token]);
+
     useEffect(() => {
         if (activeNav==='profile') {
             fetchProfileData();
+        }else if(activeNav==='orders'){
+            fetchOrders();
         }
-    },[activeNav, fetchProfileData]);
+    },[activeNav, fetchProfileData, fetchOrders]);
 
     const handleLogout=()=>{
         localStorage.removeItem('accessToken');
-        window.location.href = '/login';
+        navigate('/login');
     };
 
     return (
@@ -64,22 +85,44 @@ function Profile() {
                 <div className='profile-info-container'>
                     {error && <div className="error">{error}</div>}
                     {activeNav==='profile' && profileData && (
-                        <div>
-                            <h3>Informacje o profilu</h3>
-                            <p><strong>Imię:</strong>{profileData.Name}</p>
-                            <p><strong>Nazwisko:</strong>{profileData.LastName}</p>
-                            <p><strong>Login:</strong>{profileData.Login}</p>
-                            <p><strong>Email:</strong>{profileData.Email}</p>
-                            <p><strong>Adres:</strong>{profileData.Adress}</p>
-                            <p><strong>Numer licencji:</strong>{profileData.LicenseNumber}</p>
-                            <p><strong>Rola:</strong>{profileData.Role}</p>
-                            <p><strong>Data urodzenia:</strong>{new Date(profileData.DateOfBirth).toLocaleDateString()}</p>
+                    <div>
+                        <h3>Informacje o profilu</h3>
+                        <div className='info-details'>
+                            
+                            <p><strong className='color-font'>Imię: </strong>{profileData.Name}</p>
+                            <p><strong className='color-font'>Nazwisko: </strong>{profileData.LastName}</p>
+                            <p><strong className='color-font'>Login: </strong>{profileData.Login}</p>
+                            <p><strong className='color-font'>Email: </strong>{profileData.Email}</p>
+                            <p><strong className='color-font'>Adres: </strong>{profileData.Adress}</p>
+                            <p><strong className='color-font'>Numer licencji: </strong>{profileData.LicenseNumber}</p>
+                            <p><strong className='color-font'>Rola: </strong>{profileData.Role}</p>
+                            <p><strong className='color-font'>Data urodzenia: </strong>{new Date(profileData.DateOfBirth).toLocaleDateString()}</p>
                         </div>
+                    </div>
                     )}
-                    {activeNav==='orders' && (
+                     {activeNav==='orders' && (
                         <div>
                             <h3>Zamówienia</h3>
-                            <p>waitttt</p>
+                            {orders.length===0 ? (
+                                <p>Brak zamówień</p>
+                            ):(
+                                orders.map((order)=>(
+                                    <div key={order.PurchaseId} className="order">
+                                        <div className='order-details'>
+                                            <p>nr {order.PurchaseId}</p>
+                                            <p>{new Date(order.PurchaseDate).toLocaleDateString()}</p>
+                                            <p><strong>{order.TotalCost} zł</strong></p>
+                                        </div>
+                                    
+                                        <div className="order-images">
+                                            {order.ProductImages.map((image, index)=>(
+                                                <img key={index} src={require(`./assets/images/${image}`)} alt='product' />
+                                            ))
+                                            }
+                                        </div>
+                                    </div>
+                                ))
+                            )}
                         </div>
                     )}
                 </div>
