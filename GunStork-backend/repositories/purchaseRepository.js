@@ -11,6 +11,7 @@ const Purchase={
             for(const product of Products){
                 await db.execute(`INSERT INTO OrderedProduct (ProductId, PurchaseId, Quantity)
                 VALUES (?,?,?);`,[product.ProductId,purchaseId,product.Quantity]);
+                await db.execute(`UPDATE Product SET Quantity=Quantity-? WHERE ProductId= ?`,[product.Quantity,product.ProductId]);
             }
             return purchaseId;
         }catch(err){
