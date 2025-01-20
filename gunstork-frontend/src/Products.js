@@ -90,7 +90,9 @@ function Products({addProductToCart}){
     }
     
 
-    const filterCaliber=categories.filter((category)=>category.Type==='Caliber');
+    const filterCaliber=categories.filter((category)=>{
+        return category.Type==='Caliber' && category.ProdCal!==null
+    });
 
     return(
         <div className='main-products-container'>
