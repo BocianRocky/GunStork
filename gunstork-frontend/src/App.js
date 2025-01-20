@@ -15,7 +15,8 @@ import Login from "./Login";
 import Register from "./Register";
 import SuccessReg from "./SuccessReg";
 import Profile from "./Profile";
-import AdminPanel from "./AdminPanel"
+import AdminPanel from "./AdminPanel";
+import SuccessPur from "./SuccessPur";
 
 function App() {
 
@@ -75,6 +76,7 @@ function App() {
         <Route path='/login' element={<div className='page-container'><Login></Login></div>}/>
         <Route path='/rejestracja' element={<div className='page-container'><Register></Register></div>}/>
         <Route path='/rejestracja/success' element={<div className='page-container'><SuccessReg></SuccessReg></div>}/>
+        <Route path='/koszyk/success' element={<div className='page-container'><SuccessPur></SuccessPur></div>}/>
         <Route path='/profile' element={<div className='page-container'><Profile></Profile></div>}/>
         <Route path='adminPanel' element={<div className='page-container'><AdminPanel></AdminPanel></div>}/>
         
