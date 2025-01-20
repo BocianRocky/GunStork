@@ -11,6 +11,7 @@
     background-color: black;
     border: 1px solid #ddd;
     display: flex; 
+    margin-bottom: 56px;
 }
 .item-container img{
     margin: 40px;
