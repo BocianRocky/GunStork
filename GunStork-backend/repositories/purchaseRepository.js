@@ -18,6 +18,22 @@ const Purchase={
             console.error('blad wstawiania koszyka');
             throw new Error('Nie udało sie utworzyć za zamówienia.');
         }
+    },
+    getAllPurchasesUser: async (AccountId)=>{
+        try{
+            const query=`SELECT p.PurchaseId, p.AccountId, p.PurchaseDate, p.TotalCost, GROUP_CONCAT(pr.Image) AS ProductImages
+                FROM Purchase p JOIN OrderedProduct o ON p.PurchaseId = o.PurchaseId
+                JOIN Product pr ON pr.ProductId = o.ProductId
+                WHERE p.AccountId = ?
+                GROUP BY p.PurchaseId
+                ORDER BY p.PurchaseId;`;
+            const [rows]=await db.execute(query,[AccountId]);
+            return rows;
+        }catch(err){
+            throw new Error('Nie udało się pobrać zakupów użytkownika');
+        }
+
     }
+    
 }
 module.exports=Purchase;
