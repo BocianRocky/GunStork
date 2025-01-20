@@ -2,9 +2,11 @@ import './styles/Cart.css';
 import remove from './assets/images/remove.png';
 import axios from 'axios';
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function Cart({cart, handleRemoveProductFromCart,handleQuantityProduct}){
     const [errorMessage, setErrorMessage] = useState('');
+    const navigate=useNavigate();
 
     const handleCheckout=async ()=>{
         try{
@@ -27,7 +29,7 @@ function Cart({cart, handleRemoveProductFromCart,handleQuantityProduct}){
             
             if(res.status===201){
                 console.log(res.data.message);
-                alert('wszystko git')
+                navigate('/koszyk/success');
             }
 
 
