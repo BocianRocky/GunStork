@@ -91,7 +91,7 @@ function NewSale({addProductToCart}){
                                         <img src={require(`./assets/images/${product.image}`)} alt={product.ProductName}/>
                                     </div>
                                     <h3>{product.ProductName}</h3>
-                                    <p>{product.Price} zł</p>
+                                    <p><span className='old-price'>{product.Price} zł</span>{" "}<span className='new-price'>{(product.Price-product.Price*(product.PercentDiscount/100)).toFixed(2)} zł</span></p>
                                     <div className='add-cart'>
                                         <button onClick={()=>handleAddProductToCart(product)}>Do koszyka</button>
                                     </div>
