@@ -29,7 +29,7 @@ exports.getOnlyTwoNewProducts=async ()=>{
             COALESCE(CASE
                 WHEN s.DateEnd>=CURRENT_DATE THEN s.PercentDiscount
                 ELSE 0
-            END, 0) AS Discount
+            END, 0) AS PercentDiscount
         FROM Product p
         LEFT JOIN Sale s ON p.ProductId=s.ProductId
         ORDER BY p.DateAdded DESC
