@@ -1,14 +1,14 @@
 import './styles/HomePage.css'
 import Entry from './Entry'
 import EntryImages from './EntryImages';
-function HomePage(){
+function HomePage({addProductToCart}){
     
 
 
     return(
         <div className='homepage'>
-            <EntryImages></EntryImages>
-            <Entry></Entry>
+            <EntryImages ></EntryImages>
+            <Entry addProductToCart={addProductToCart}></Entry>
         </div>
     );
 }

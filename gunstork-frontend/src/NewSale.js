@@ -2,7 +2,7 @@ import './styles/NewSale.css'
 import axios from 'axios'
 import React, { useEffect, useState } from 'react';
 
-function NewSale(){
+function NewSale({addProductToCart}){
     const [newProducts,setNewProducts]=useState([]);
     const [saleProducts,setSaleProducts]=useState([]);
     const [error, setError]=useState();
@@ -32,6 +32,21 @@ function NewSale(){
 
     },[]);
 
+    const handleAddProductToCart=(product)=>{
+        if(product){
+            const addProduct={
+                ProductId:product.ProductId,
+                ProductName:product.ProductName,
+                Image:product.image,
+                Price:product.Price,
+                DiscountPrice:product.PercentDiscount,
+                Quantity:1
+            };
+            console.log(addProduct);
+            addProductToCart(addProduct);
+        }
+    }
+
 
 
     return(
@@ -53,7 +68,7 @@ function NewSale(){
                                     <h3>{product.ProductName}</h3>
                                     <p>{product.Price} zł</p>
                                     <div class="add-cart">
-                                        <button>Do koszyka</button>
+                                        <button onClick={()=>handleAddProductToCart(product)}>Do koszyka</button>
                                     </div>   
                                 </div>
                             ))
@@ -78,7 +93,7 @@ function NewSale(){
                                     <h3>{product.ProductName}</h3>
                                     <p>{product.Price} zł</p>
                                     <div className='add-cart'>
-                                        <button>Do koszyka</button>
+                                        <button onClick={()=>handleAddProductToCart(product)}>Do koszyka</button>
                                     </div>
                                 </div>
                             ))

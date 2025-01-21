@@ -1,7 +1,7 @@
 import Elementor from './Elementor';
 import NewSale from './NewSale';
 import './styles/Entry.css'
-function Entry(){
+function Entry({addProductToCart}){
 
     return(
         <div className='description'>
@@ -20,7 +20,7 @@ function Entry(){
 
                 </div>
                 <Elementor></Elementor>
-                <NewSale></NewSale>
+                <NewSale addProductToCart={addProductToCart}></NewSale>
             </div>
         </div>
     );

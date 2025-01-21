@@ -66,7 +66,7 @@ function App() {
       <Nav countItemCart={getCartCountProducts()}></Nav>
       <SecNav></SecNav>
       <Routes>
-        <Route path="/" element={<HomePage/>}/>
+        <Route path="/" element={<HomePage addProductToCart={addProductToCart}/>}/>
         <Route path="/products" element={<div className='page-container'><Products addProductToCart={addProductToCart}/></div>}/>
         <Route path="/products/:productId" element={<div className='page-container'><Item addProductToCart={addProductToCart}/></div>}/>
         <Route path="*" element={<NotFound/>}/>
