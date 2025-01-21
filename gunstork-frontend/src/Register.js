@@ -15,6 +15,7 @@ function Register(){
         Licence: ''
     });
     const [message,setMessage]=useState('');
+    const [error,setError]=useState('');
     const navigate=useNavigate();
 
     const handleChange=(e)=>{
@@ -25,6 +26,16 @@ function Register(){
     }
     const handleSubmit= async (e)=>{
         e.preventDefault();
+
+        if(form.Password.length<5) {
+            setError('Hasło musi mieć co najmniej 8 znaków');
+            return;
+        }
+        if(isNaN(form.Licence)){
+            setError('Numer licencji musi być liczbą');
+            return;
+        }
+        setError('');
         try{
             const res= await axios.post('http://localhost:3000/account/register',form);
             console.log(res.data);
@@ -51,6 +62,7 @@ function Register(){
                         <label><input type="text" name="Adress" placeholder='Adres' value={form.Adress} onChange={handleChange} required /></label>
                         <label><input type="text" name="Licence" placeholder='Numer licencji' value={form.Licence} onChange={handleChange} required /></label>
                         <button type="submit">Załóż konto</button>
+                        {error && <p className='error'>{error}</p>}
                         {message && <p className='message'>{message}</p>}
                         
                         
