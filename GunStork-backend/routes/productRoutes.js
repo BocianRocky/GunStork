@@ -10,6 +10,6 @@ router.get('/',productController.getProductsByCategoryAndCount);
 router.get('/categories',productController.getCategories);
 router.get('/:productId',productController.getProductById);
 router.post('/purchase',authenticateToken,purchaseController.handlePurchase);
-
+router.get('/categories/subcategories',productController.getChildrenCategory);
 
 module.exports=router;
