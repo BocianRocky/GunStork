@@ -70,3 +70,5 @@ GET http://localhost:3000/products?categoryName=kolimatory
 ###
 GET http://localhost:3000/account/user
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJBY2NvdW50SWQiOjEsImxvZ2luT3JFbWFpbCI6Im1hdGl4djIiLCJSb2xlIjoidXNlciIsImlhdCI6MTczNzQxMzIxMCwiZXhwIjoxNzM3NDE2ODEwfQ.tCfqVXekI7jMqsuqKtsD0FyvVWhLPlAW1jwgI7U5AXs
+###
+GET http://localhost:3000/products/categories/subcategories?categoryName=broń
