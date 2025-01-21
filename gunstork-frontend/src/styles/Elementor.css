@@ -1,6 +1,7 @@
 .elementor-space{
     margin-top: 50px;
     text-align: center;
+    
 }
 .elementor-container{
     margin-top: 20px;
@@ -8,6 +9,10 @@
     justify-content: space-between;
     gap: 10px;
     
+}
+.elementor-container a{
+    color: white;
+    text-decoration: none;
 }
 .element{
     position: relative;
