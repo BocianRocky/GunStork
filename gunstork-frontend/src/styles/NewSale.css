@@ -90,3 +90,8 @@
     background-color: #6c6c6c;
     border-color: #6c6c6c;
 }
+
+.old-price{
+    text-decoration: line-through;
+    color:darkgrey;
+}
