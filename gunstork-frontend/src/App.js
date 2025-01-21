@@ -17,6 +17,7 @@ import SuccessReg from "./SuccessReg";
 import Profile from "./Profile";
 import AdminPanel from "./AdminPanel";
 import SuccessPur from "./SuccessPur";
+import Subcategories from "./SubCategories";
 
 function App() {
 
@@ -79,6 +80,7 @@ function App() {
         <Route path='/koszyk/success' element={<div className='page-container'><SuccessPur></SuccessPur></div>}/>
         <Route path='/profile' element={<div className='page-container'><Profile></Profile></div>}/>
         <Route path='adminPanel' element={<div className='page-container'><AdminPanel></AdminPanel></div>}/>
+        <Route path="/products/categories/subcategories" element={<Subcategories></Subcategories>} />
         
       </Routes>
       <Footer></Footer>
