@@ -60,3 +60,12 @@ exports.getProductById=async (req,res)=>{
         res.status(500).send('Blad pobrania danych z serwera');
     }
 }
+exports.getChildrenCategory=async (req,res)=>{
+    try{
+        const {categoryName}=req.query;
+        const categories=await productRepository.getChildrenCategory(categoryName);
+        res.status(200).json(categories);
+    }catch(err){
+        res.status(500).send('Blad pobrania podkategorii z serwera');
+    }
+}

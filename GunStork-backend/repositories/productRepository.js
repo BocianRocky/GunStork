@@ -98,3 +98,13 @@ exports.getProductById=async (productId)=>{
         throw new Error('Blad pobierania danych z serwera');
     }
 }
+exports.getChildrenCategory= async (categoryName)=>{
+    try{
+        const [rows]=await db.execute(`SELECT c.CategoryId, c.CategoryName 
+            FROM Category c JOIN Category cp ON c.CategoryParentId=cp.CategoryId 
+            WHERE cp.CategoryName= ?;`,[categoryName]);
+        return rows;
+    }catch(err){
+        throw new Error('Blad pobierania danych z serwera');
+    }
+}
