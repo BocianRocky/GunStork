@@ -8,7 +8,7 @@ function SecNav(){
       <nav>
         <ul>
           <li>
-            <Link to="/products?type=broń">BROŃ</Link>
+            <Link to="/products/categories/subcategories?categoryName=broń">BROŃ</Link>
             <ul className="sub-menu">
               <li><Link to="/products?type=broń-krótka-bocznego-zapłonu">Broń krótka bocznego zapłonu</Link></li>
               <li><Link to="/products?type=broń-długa-bocznego-zapłonu">Broń długa bocznego zapłonu</Link></li>
@@ -17,7 +17,7 @@ function SecNav(){
             </ul>
           </li>
           <li>
-            <Link to="/main2">AMUNICJA</Link>
+            <Link to="/products/categories/subcategories?categoryName=amunicja">AMUNICJA</Link>
             <ul className="sub-menu">
               <li><Link to="/products?type=Amunicja-bocznego-zapłonu">Amunicja bocznego zapłonu</Link></li>
               <li><Link to="/products?type=Amunicja-centralnego-zapłonu">Amunicja centralnego zapłonu</Link></li>
@@ -25,7 +25,7 @@ function SecNav(){
             </ul>
           </li>
           <li>
-            <Link to="/main3">OPTYKA</Link>
+            <Link to="/products/categories/subcategories?categoryName=optyka">OPTYKA</Link>
             <ul className="sub-menu">
               <li><Link to="/products?type=Kolimatory">Kolimatory</Link></li>
               <li><Link to="/products?type=Termowizja">Termowizja</Link></li>
