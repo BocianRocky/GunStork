@@ -33,10 +33,10 @@ function Footer(){
                         <h3>Info</h3>
                     </div>
                     <ul>
-                    <li><a href="#">Regulamin</a></li>
-                        <li><a href="#">Dostawa i płatność</a></li>
-                        <li><a href="#">Polityka prywatności</a></li>
-                        <li><a href="#">Gwarancja</a></li>
+                        <li><a href="#">Poradniki i zasady</a></li>
+                        <li><a href="#">Aktualności</a></li>
+                        <li><a href="#">Wyrobienie pozwolenia</a></li>
+                        <li><a href="#">Dodatkowe informacje</a></li>
                     </ul>
                 </div>
                 <div className='footer-column'>
