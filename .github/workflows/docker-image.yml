@@ -28,5 +28,11 @@ jobs:
 
       - name: Run Docker container
         run: |
-          docker run -d --name mysql-container ghcr.io/bocianrocky/mysql:latest
+          docker run -d --name mysql-container \
+            -e MYSQL_ROOT_PASSWORD=root \
+            -e MYSQL_DATABASE=gunstork \
+            -e MYSQL_USER=user \
+            -e MYSQL_PASSWORD=mati1234! \
+            -v mysql_data:/var/lib/mysql \
+            ghcr.io/bocianrocky/mysql:latest
 
