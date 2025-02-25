@@ -1,0 +1,15 @@
+version: '3.3'
+services:
+  database:
+    image: mysql:5.7
+    container_name: gunstork
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: stork
+      MYSQL_DATABASE: gunstork
+      MYSQL_USER: user
+      MYSQL_PASSWORD: mati1234!
+    ports:
+      - '3306:3306'
+    volumes:
+      - ./mysql_data.tar.gz:/docker-entrypoint-initdb.d/mysql_data.tar.gz
