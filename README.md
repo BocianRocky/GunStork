@@ -27,24 +27,24 @@
     git clone https://github.com/BocianRocky/GunStork.git
     ```
    
-3. Install dependencies:
+2. Install dependencies:
    ```bash
     npm install
     ```
    
-4. Running the application with Docker Compose:
+3. Running the application with Docker Compose:
    
    ```bash
     docker-compose up
     ```
    
-5. start the backend server:
+4. start the backend server:
    
    ```bash
     node server.js
     ```
    
-5.Start the frontend application:
+5. Start the frontend application:
 
    ```bash
     npm start
