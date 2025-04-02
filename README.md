@@ -25,7 +25,6 @@
    
    ```bash
     git clone https://github.com/BocianRocky/GunStork.git
-    cd GunStork
     ```
    
 3. Install dependencies:
@@ -49,7 +48,7 @@
 
    ```bash
     npm start
-    ```
+   ```
 
 
        
