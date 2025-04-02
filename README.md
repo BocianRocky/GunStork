@@ -22,24 +22,32 @@
 ## Installation
 
 1. Clone the repository:
+   
    ```bash
     git clone https://github.com/BocianRocky/GunStork.git
     cd GunStork
     ```
-2. Install dependencies:
+   
+3. Install dependencies:
    ```bash
     npm install
     ```
-3. Running the application with Docker Compose:
+   
+4. Running the application with Docker Compose:
+   
    ```bash
     docker-compose up
     ```
-4. start the backend server:
+   
+5. start the backend server:
+   
    ```bash
     node server.js
     ```
+   
 5.Start the frontend application:
-       ```bash
+
+   ```bash
     npm start
     ```
 
