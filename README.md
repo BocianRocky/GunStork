@@ -1,4 +1,9 @@
 # GunStork
+
+<div align="center">
+    <img src="./gunstork.gif" alt="gunstork" width="1000"/>
+</div>
+
 ## Technologies
 
 - Frontend: React, CSS
